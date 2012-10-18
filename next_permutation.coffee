@@ -4,10 +4,11 @@ next_permutation = (p) ->
   if i-- is 0 then return false
   --j until p[i] < p[j]
   [p[i], p[j]] = [p[j], p[i]]
-  p[..i].concat p[i+1..].reverse()
+  p[i+1..] = p[i+1..].reverse()
+  return true
 
-p = [1, 2, 3, 4, 5, 6]
-i = 0
-loop
-  console.log ++i, p
-  break unless p = next_permutation p
+permute = (n, callback = console.log) ->
+  callback c = 0, p = [1..n]
+  callback ++c, p while next_permutation p
+
+permute 4

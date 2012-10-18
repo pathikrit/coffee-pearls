@@ -11,4 +11,5 @@ permute = (n, callback = console.log) ->
   callback c = 0, p = [1..n]
   callback ++c, p while next_permutation p
 
+
 permute 4

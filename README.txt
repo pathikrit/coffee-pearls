@@ -1,6 +1,6 @@
 Collection of small programs written in CoffeeScript
 
 Goals:
-* No external dependency - simply do `coffee program.coffee` to run
+* No dependency - each program can be run by itself: `coffee program.coffee`
 * Readability over performance
 * Self-explanatory - no code comments

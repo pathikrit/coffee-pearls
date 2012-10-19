@@ -1,10 +1,9 @@
-next_permutation = (p) ->
-  i = j = p.length-1
-  --i until i is 0 or p[i-1] < p[i]
-  if i-- is 0 then return false
-  --j until p[i] < p[j]
-  [p[i], p[j]] = [p[j], p[i]]
-  p[i+1..] = p[i+1..].reverse()
+next_permutation = (p, n = p.length) ->
+  break for i in [n-1..1] when p[i-1] < p[i]
+  if i is 0 then return false
+  p[i..n] = p[i..n].reverse()
+  swap = (x,y) -> [p[x], p[y]] = [p[y], p[x]]
+  (swap i-1, j; break) for j in [i..n] when p[i-1] < p[j]
   return true
 
 permute = (n, callback = console.log) ->

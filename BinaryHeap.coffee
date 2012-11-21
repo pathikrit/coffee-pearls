@@ -33,6 +33,7 @@ class BinaryHeap
   
   swap: (x, y) -> [@A[x], @A[y]] = [@A[y], @A[x]]
 
+module.exports = BinaryHeap
 
 a = [12, 23, 5, -6, 9, 23, 345, 4, 4, 5, 100, 4, 56, 48, 97, 5, 6, 19]
 b = new BinaryHeap()

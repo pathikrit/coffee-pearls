@@ -18,6 +18,7 @@ solve = (sudoku, cell = 0) ->
 
   (guesses.some solves) or sudoku[x][y] = 0
 
+module.exports = solve
 
 sudoku = [
   [1,0,0,0,0,7,0,9,0],

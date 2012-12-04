@@ -2,7 +2,7 @@ a_star =                        # returns the goal node (or null if path not fou
   (
     start,                      # starting node
     neighbors,                  # a function that takes in a node and returns list of neighbors
-    h,                          # heuristic distance from goal - must be 'admissable' i.e. heurisitic(x) <= distance(x,y) + heuristic(y) for all x,y
+    h = -> 0,                   # heuristic distance from goal - must be 'admissable' i.e. heurisitic(x) <= distance(x,y) + heuristic(y) for all x,y
     dist = -> 1,                # takes two adjacent nodes (from neighbours) and returns distance between them (optional - default is 1)
     isGoal = (x) -> h(x) is 0   # returns true off node is goal (optional - assumes heurisitc(goal) = 0)
   ) ->

@@ -13,9 +13,9 @@ next = (puzzle) ->
     return q
 
   [
-    swap z-n unless z-n <  0,
-    swap z+n unless z+n >= n*n,
-    swap z-1 unless z%n is 0,
+    swap z-n unless z-n <  0
+    swap z+n unless z+n >= n*n
+    swap z-1 unless z%n is 0
     swap z+1 unless z%n is n-1
   ].filter (x) -> x isnt undefined
 
@@ -24,9 +24,9 @@ solve = (start) -> require('./a_star') start, next, score
 module.exports = solve
 
 puzzle = [          # 0 denotes empty square
-   4,  9,  3,  6,
-   5,  2, 10,  0,
-  12,  8,  7,  1,
+   4,  9,  3,  6
+   5,  2, 10,  0
+  12,  8,  7,  1
   13, 14, 15, 11
 ]
 

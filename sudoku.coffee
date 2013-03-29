@@ -4,7 +4,7 @@ solve = (sudoku, cell = 0) ->
   x = cell%9
   y = (cell - x)/9
 
-  if sudoku[x][y] isnt 0 then return solve sudoku, cell+1
+  return solve sudoku, cell+1 unless sudoku[x][y] is 0
 
   row = (i) -> sudoku[x][i]
   col = (i) -> sudoku[i][y]
@@ -12,11 +12,11 @@ solve = (sudoku, cell = 0) ->
 
   good = (guess) -> [0...9].every (i) -> guess not in [(row i), (col i), (box i)]
 
-  guesses = [1..9].filter good
-
   solves = (guess) -> sudoku[x][y] = guess; solve sudoku, cell+1
 
-  (guesses.some solves) or sudoku[x][y] = 0
+  found = [1..9].filter(good).some(solves)
+
+  found or sudoku[x][y] = 0
 
 module.exports = solve
 

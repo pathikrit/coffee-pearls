@@ -1,14 +1,13 @@
 solve = (sudoku, cell = 0) ->
   if cell is 9*9 then return sudoku
-
-  x = cell%9
-  y = (cell - x)/9
-
+  
+  [x, y] = [cell%9, Math.floor(cell/9)]
+  
   return solve sudoku, cell+1 unless sudoku[x][y] is 0
 
   row = (i) -> sudoku[x][i]
   col = (i) -> sudoku[i][y]
-  box = (i) -> sudoku[x - x%3 + (i - i%3)/3][y - y%3 + i%3]
+  box = (i) -> sudoku[x - x%3 + Math.floor(i/3)][y - y%3 + i%3]
 
   good = (guess) -> [0...9].every (i) -> guess not in [(row i), (col i), (box i)]
 
